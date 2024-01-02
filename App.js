@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import axios from 'axios';
-import SearchBarComponent from './SearchBarComponent'; // Update the path based on your project structure
-import TableComponent from './TableComponent'; // Update the path based on your project structure
-import PaginationComponent from './PaginationComponent'; // Update the path based on your project structure
+import SearchBarComponent from './SearchBarComponent'; 
+import TableComponent from './TableComponent';
+import PaginationComponent from './PaginationComponent'; 
 
 export default function App() {
   const [userData, setUserData] = useState([]);
@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // Remove alignItems and justifyContent to make the content take the whole screen
   },
   title: {
     fontSize: 20,

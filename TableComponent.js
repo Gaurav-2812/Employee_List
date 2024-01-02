@@ -1,7 +1,7 @@
 // TableComponent.js
 import React, { useState } from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons'; // Import MaterialIcons from Expo vector icons
+import { MaterialIcons } from '@expo/vector-icons';
 import RowComponent from './RowComponent';
 import { CheckBox } from 'react-native-elements';
 

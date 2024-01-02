@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Import Ionicons from Expo vector icons
+import { Ionicons } from '@expo/vector-icons'; 
 
 const SearchBarComponent = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -11,7 +11,7 @@ const SearchBarComponent = ({ onSearch }) => {
 
   const handleCancel = () => {
     setSearchQuery('');
-    onSearch(''); // You may want to clear the search results as well
+    onSearch('');
   };
 
   return (
