@@ -9,21 +9,21 @@ const RowComponent = ({ data, isSelected, onSelect }) => {
   };
 
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10, borderBottomWidth: 1 }}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10, marginLeft: 10, backgroundColor: 'white', borderRadius: 10, marginBottom: 10 }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
         <CheckBox
           checked={isSelected}
           onPress={handleSelect}
           containerStyle={{ marginLeft: 0, marginRight: 0 }}
         />
-        <View style={{ marginLeft: 10, flex: 1 }}>
-          <Text>{data.name}</Text>
-        </View>
       </View>
-      <View style={{ flex: 1, marginLeft: 10 }}>
+      <View style={{ marginLeft: 0, flex: 1 }}>
+        <Text>{data.name}</Text>
+      </View>
+      <View style={{ flex: 1, marginLeft: 20}}>
         <Text>{data.email}</Text>
       </View>
-      <View style={{ flex: 1, marginLeft: 10 }}>
+      <View style={{ flex: 1, marginLeft: 10,paddingLeft:20,alignItems:'center' }}>
         <Text>{data.role}</Text>
       </View>
     </View>

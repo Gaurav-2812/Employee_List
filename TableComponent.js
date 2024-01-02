@@ -33,42 +33,42 @@ const TableComponent = ({ data }) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      {/* Column Titles */}
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10, backgroundColor: '#eee', marginLeft: 10, marginRight: 10 }}>
-        <Text></Text>
-        <Text>Name</Text>
-        <Text>Email</Text>
-        <Text>Role</Text>
-      </View>
+    <View style={{ flex: 1, backgroundColor: '#F0F0F0', padding: 10 }}>
+    {/* Column Titles */}
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 5, backgroundColor: '#eee', borderRadius: 10, marginBottom: 5, alignItems: 'center' }}>
+      <Text />
+      <Text>Name</Text>
+      <Text >Email</Text>
+      <Text style={{ paddingRight: 10 }}>Role</Text>
+    </View>
 
-      {/* Table Rows */}
-      <FlatList
-        data={data}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <RowComponent
-            data={item}
-            isSelected={selectedRows.includes(item.id)}
-            onSelect={handleRowSelect}
-          />
-        )}
-        style={{ marginLeft: 10, marginRight: 10, flex: 1 }}
-      />
+    {/* Table Rows */}
+    <FlatList
+      data={data}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item }) => (
+        <RowComponent
+          data={item}
+          isSelected={selectedRows.includes(item.id)}
+          onSelect={handleRowSelect}
+        />
+      )}
+      style={{marginRight: 0, flex: 1}}
+    />
 
       {/* Action Buttons */}
       {selectedRows.length > 0 && (
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10, position: 'absolute', bottom: 0, left: 0, right: 0, backgroundColor: '#fff' }}>
           <View style={{ flex: 1, backgroundColor: 'transparent' }}>
             <TouchableOpacity onPress={handleEdit} disabled={selectedRows.length !== 1}>
-              <View style={{ display: 'flex',alignItems:'center',backgroundColor: 'blue', borderRadius: 5, padding: 5 }}>
+              <View style={{ display: 'flex',alignItems:'center',backgroundColor: 'blue', borderRadius: 50, padding: 5 }}>
                 <MaterialIcons name="edit" size={24} color={selectedRows.length === 1 ? 'white' : 'gray'} />
               </View>
             </TouchableOpacity>
           </View>
           <View style={{ flex: 1, marginLeft: 10, backgroundColor: 'transparent' }}>
             <TouchableOpacity onPress={handleDelete} disabled={selectedRows.length === 0}>
-              <View style={{ display: 'flex',alignItems:'center',backgroundColor: 'red', borderRadius: 5, padding: 5 }}>
+              <View style={{ display: 'flex',alignItems:'center',backgroundColor: 'red', borderRadius: 50, padding: 5 }}>
                 <MaterialIcons name="delete" size={24} color={selectedRows.length > 0 ? 'white' : 'gray'} />
               </View>
             </TouchableOpacity>

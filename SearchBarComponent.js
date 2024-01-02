@@ -11,7 +11,7 @@ const SearchBarComponent = ({ onSearch }) => {
   return (
     <View style={{ padding: 10 }}>
       <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10 ,padding:10,borderRadius: 10}}
+        style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 5 ,padding:10,borderRadius: 10}}
         placeholder="Search..."
         value={searchQuery}
         onChangeText={(text) => setSearchQuery(text)}
