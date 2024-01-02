@@ -9,7 +9,7 @@ const RowComponent = ({ data, isSelected, onSelect }) => {
   };
 
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10, marginLeft: 10, backgroundColor: 'white', borderRadius: 10, marginBottom: 10 }}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10, marginLeft: 10, backgroundColor: isSelected ? '#ddd' : 'white', borderRadius: 10, marginBottom: 10 }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
         <CheckBox
           checked={isSelected}
@@ -20,10 +20,10 @@ const RowComponent = ({ data, isSelected, onSelect }) => {
       <View style={{ marginLeft: 0, flex: 1 }}>
         <Text>{data.name}</Text>
       </View>
-      <View style={{ flex: 1, marginLeft: 20}}>
+      <View style={{ flex: 1, marginLeft: 20 }}>
         <Text>{data.email}</Text>
       </View>
-      <View style={{ flex: 1, marginLeft: 10,paddingLeft:20,alignItems:'center' }}>
+      <View style={{ flex: 1, marginLeft: 10, paddingLeft: 20, alignItems: 'center' }}>
         <Text>{data.role}</Text>
       </View>
     </View>

@@ -3,9 +3,16 @@ import React, { useState } from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; // Import MaterialIcons from Expo vector icons
 import RowComponent from './RowComponent';
+import { CheckBox } from 'react-native-elements';
 
 const TableComponent = ({ data }) => {
+  const [selectAll, setSelectAll] = useState(false);
   const [selectedRows, setSelectedRows] = useState([]);
+
+  const handleSelectAll = () => {
+    setSelectAll(!selectAll);
+    setSelectedRows(selectAll ? [] : data.map((item) => item.id));
+  };
 
   const handleRowSelect = (id) => {
     // Toggle selection for a row
@@ -33,13 +40,22 @@ const TableComponent = ({ data }) => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F0F0F0', padding: 10 }}>
+    <View style={{ flex: 1, backgroundColor: '#F0F0F0' }}>
     {/* Column Titles */}
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 5, backgroundColor: '#eee', borderRadius: 10, marginBottom: 5, alignItems: 'center' }}>
-      <Text />
-      <Text>Name</Text>
-      <Text >Email</Text>
-      <Text style={{ paddingRight: 10 }}>Role</Text>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 5, backgroundColor: '#eee', marginLeft: 0, marginRight: 30, alignItems: 'center' }}>
+        {/* <TouchableOpacity onPress={handleSelectAll}>
+          <View style={{ flexDirection: 'row', alignItems: 'center',marginLeft:10 }}>
+            <MaterialIcons name={selectAll ? 'check-box' : 'check-box-outline-blank'} size={24} />
+          </View>
+        </TouchableOpacity> */}
+        <CheckBox
+          checked={selectAll}
+          onPress={handleSelectAll}
+          containerStyle={{ marginLeft: 10, marginRight: 0 }}
+        />
+        <Text style={{ marginLeft: 0,marginRight:10 }}>Name</Text>
+        <Text>Email</Text>
+        <Text style={{ paddingRight: 10 }}>Role</Text>
     </View>
 
     {/* Table Rows */}
@@ -53,7 +69,7 @@ const TableComponent = ({ data }) => {
           onSelect={handleRowSelect}
         />
       )}
-      style={{marginRight: 0, flex: 1}}
+      style={{marginRight: 10, flex: 1,marginBottom:40}}
     />
 
       {/* Action Buttons */}
