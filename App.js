@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import axios from 'axios';
 import SearchBarComponent from './SearchBarComponent'; // Update the path based on your project structure
 import TableComponent from './TableComponent'; // Update the path based on your project structure
@@ -43,6 +43,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Employee Directory</Text>
       <SearchBarComponent onSearch={handleSearch} />
       <TableComponent
         data={filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)}
@@ -62,5 +63,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     // Remove alignItems and justifyContent to make the content take the whole screen
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 10,
   },
 });

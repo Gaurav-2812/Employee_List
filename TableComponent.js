@@ -42,20 +42,28 @@ const TableComponent = ({ data }) => {
   return (
     <View style={{ flex: 1, backgroundColor: '#F0F0F0' }}>
     {/* Column Titles */}
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 5, backgroundColor: '#eee', marginLeft: 0, marginRight: 30, alignItems: 'center' }}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#eee', marginLeft: 0, marginRight: 30, alignItems: 'center' }}>
         {/* <TouchableOpacity onPress={handleSelectAll}>
           <View style={{ flexDirection: 'row', alignItems: 'center',marginLeft:10 }}>
             <MaterialIcons name={selectAll ? 'check-box' : 'check-box-outline-blank'} size={24} />
           </View>
         </TouchableOpacity> */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
         <CheckBox
           checked={selectAll}
           onPress={handleSelectAll}
-          containerStyle={{ marginLeft: 10, marginRight: 0 }}
-        />
-        <Text style={{ marginLeft: 0,marginRight:10 }}>Name</Text>
-        <Text>Email</Text>
-        <Text style={{ paddingRight: 10 }}>Role</Text>
+          containerStyle={{ marginLeft: 15,marginTop:10, marginRight: 0,alignItems:'center',justifyContent:'center' }}
+          />
+        </View>
+        <View style={{ marginLeft: 0, flex: 1,alignItems:'center' }}>
+          <Text>Name</Text>
+        </View>
+        <View style={{ marginLeft: 0, flex: 2.5,alignItems:'center' }}>
+          <Text>Email</Text>
+        </View>
+        <View style={{ marginLeft: 10, flex: 1,alignItems:'center' }}>
+          <Text>Role</Text>
+        </View>
     </View>
 
     {/* Table Rows */}
@@ -69,7 +77,7 @@ const TableComponent = ({ data }) => {
           onSelect={handleRowSelect}
         />
       )}
-      style={{marginRight: 10, flex: 1,marginBottom:40}}
+      style={{marginRight: 10, flex: 1,marginBottom:20}}
     />
 
       {/* Action Buttons */}
@@ -77,14 +85,14 @@ const TableComponent = ({ data }) => {
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10, position: 'absolute', bottom: 0, left: 0, right: 0, backgroundColor: '#fff' }}>
           <View style={{ flex: 1, backgroundColor: 'transparent' }}>
             <TouchableOpacity onPress={handleEdit} disabled={selectedRows.length !== 1}>
-              <View style={{ display: 'flex',alignItems:'center',backgroundColor: 'blue', borderRadius: 50, padding: 5 }}>
-                <MaterialIcons name="edit" size={24} color={selectedRows.length === 1 ? 'white' : 'gray'} />
+              <View style={{ display: 'flex',alignItems:'center',backgroundColor: selectedRows.length === 1 ? '#3b65d1' : 'gray', borderRadius: 50, padding: 5 }}>
+                <MaterialIcons name="edit" size={24} color={selectedRows.length === 1 ? 'white' : '#424242'} />
               </View>
             </TouchableOpacity>
           </View>
           <View style={{ flex: 1, marginLeft: 10, backgroundColor: 'transparent' }}>
             <TouchableOpacity onPress={handleDelete} disabled={selectedRows.length === 0}>
-              <View style={{ display: 'flex',alignItems:'center',backgroundColor: 'red', borderRadius: 50, padding: 5 }}>
+              <View style={{ display: 'flex',alignItems:'center',backgroundColor: '#d13b3b', borderRadius: 50, padding: 5 }}>
                 <MaterialIcons name="delete" size={24} color={selectedRows.length > 0 ? 'white' : 'gray'} />
               </View>
             </TouchableOpacity>
